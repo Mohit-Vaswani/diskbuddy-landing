@@ -26,7 +26,7 @@ export function ThanksContent() {
     return (
       <Shell title="That payment didn't go through">
         <p className="mt-5 text-[15px] leading-[1.65] text-ink-soft">
-          Nothing was charged. Head back to the pricing card and try again — or
+          Nothing was charged. Head back to the pricing card and try again, or
           email us and we will sort it out with you.
         </p>
         <div className="mt-8 flex flex-wrap justify-center gap-3">
@@ -51,7 +51,7 @@ export function ThanksContent() {
         <KeyBox value={licenseKey} />
       ) : (
         <p className="mt-7 rounded-[12px] border border-line bg-paper-deep/50 px-5 py-4 text-[13.5px] leading-[1.6] text-ink-soft">
-          Your key is in the confirmation email — it usually lands within a
+          Your key is in the confirmation email - it usually lands within a
           minute. If it hasn&apos;t shown up, check spam, then email{" "}
           <a
             href={`mailto:${SUPPORT_EMAIL}`}
@@ -88,7 +88,7 @@ export function ThanksContent() {
       </ol>
 
       <p className="mt-12 text-[12.5px] text-ink-muted">
-        Anything at all —{" "}
+        Anything at all -{" "}
         <a
           href={`mailto:${SUPPORT_EMAIL}`}
           className="text-accent underline underline-offset-2"

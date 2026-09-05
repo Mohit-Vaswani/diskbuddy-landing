@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { Logo } from "./logo";
-import { BuyButton } from "./ui";
+import { DownloadButton } from "./ui";
 
 const LINKS = [
   { href: "#features", label: "Features" },
@@ -49,7 +49,11 @@ export function Nav() {
           ))}
         </div>
 
-        <BuyButton className="px-4 py-2 text-[13px]" label="Buy" />
+        <DownloadButton
+          className="px-4 py-2 text-[13px]"
+          label="Download"
+          variant="solid"
+        />
       </nav>
     </header>
   );

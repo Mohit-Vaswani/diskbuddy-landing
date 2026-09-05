@@ -84,7 +84,7 @@ export function BuyButton({
           rel="nofollow"
           className={buttonClass("solid", className)}
         >
-          {label ?? `Buy DiskBuddy — ${PRICING[region].price}`}
+          {label ?? `Buy DiskBuddy - ${PRICING[region].price}`}
         </a>
       )}
     />

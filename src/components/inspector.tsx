@@ -16,11 +16,11 @@ const ROWS: Row[] = [
     eyebrow: "The inspector",
     title: "Click anything. Learn everything about it.",
     lede:
-      "The right-hand panel follows your selection everywhere — through the treemap, the folder grid, the ranked list. It answers the question you actually have: is this safe to delete?",
+      "The right-hand panel follows your selection everywhere - through the treemap, the folder grid, the ranked list. It answers the question you actually have: is this safe to delete?",
     points: [
       {
         title: "Size on disk, not just size",
-        body: "Logical size, real size on disk, and exactly how many gigabytes APFS compression is saving you — three numbers most tools collapse into one.",
+        body: "Logical size, real size on disk, and exactly how many gigabytes APFS compression is saving you, three numbers most tools collapse into one.",
       },
       {
         title: "Largest inside, always ranked",

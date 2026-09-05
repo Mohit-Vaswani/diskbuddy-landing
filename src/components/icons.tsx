@@ -109,6 +109,17 @@ export function BoltIcon({ className = base }: IconProps) {
   );
 }
 
+export function ShieldIcon({ className = base }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden="true">
+      <g stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12 3.2 5 5.9v5.6c0 4 2.9 7.7 7 9.3 4.1-1.6 7-5.3 7-9.3V5.9z" />
+        <path d="m9.2 12.1 1.9 1.9 3.7-3.9" />
+      </g>
+    </svg>
+  );
+}
+
 export function AppleIcon({ className = "h-4 w-4" }: IconProps) {
   return (
     <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true">

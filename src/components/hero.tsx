@@ -72,7 +72,7 @@ export function Hero() {
 
           <p className="rise mx-auto mt-7 max-w-xl text-[16.5px] leading-[1.62] text-ink-soft text-pretty [animation-delay:120ms]">
             DiskBuddy scans your drive in seconds and maps it eight different
-            ways — so the 34 GB you forgot about stops hiding three folders
+            ways, so the 34 GB you forgot about stops hiding three folders
             deep.
           </p>
 

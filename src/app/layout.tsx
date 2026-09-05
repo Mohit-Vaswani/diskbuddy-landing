@@ -16,12 +16,12 @@ const geistMono = Geist_Mono({
 });
 
 const description =
-  "DiskBuddy is a Mac disk space analyzer that maps every byte on your drive — eight ways to see it, duplicate and leftover detection, and a staged cleanup that never deletes anything behind your back.";
+  "DiskBuddy is a Mac disk space analyzer that maps every byte on your drive, eight ways to see it, duplicate and leftover detection, and a staged cleanup that never deletes anything behind your back.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "DiskBuddy — See what's eating your Mac's disk",
+    default: "DiskBuddy - See what's eating your Mac's disk",
     template: "%s · DiskBuddy",
   },
   description,
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     "app uninstaller mac",
   ],
   openGraph: {
-    title: "DiskBuddy — See what's eating your Mac's disk",
+    title: "DiskBuddy - See what's eating your Mac's disk",
     description,
     url: "/",
     siteName: "DiskBuddy",
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "DiskBuddy — See what's eating your Mac's disk",
+    title: "DiskBuddy - See what's eating your Mac's disk",
     description,
     images: ["/screens/treemap.jpeg"],
   },

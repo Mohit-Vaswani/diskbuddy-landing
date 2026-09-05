@@ -20,7 +20,7 @@ export function ViewsGallery() {
         <SectionHeading
           eyebrow="One scan, eight readings"
           title="The same data, whichever way you think."
-          lede="Some people find the big folder by area, some by ranking, some by date. DiskBuddy scans once and renders it eight ways — switching is instant, no re-scan."
+          lede="Some people find the big folder by area, some by ranking, some by date. DiskBuddy scans once and renders it eight ways - switching is instant, no re-scan."
         />
 
         <div className="mt-14 grid gap-8 lg:grid-cols-[236px_1fr] lg:gap-10">

@@ -67,7 +67,19 @@ export const HERO_VIEWS = ["treemap", "folders", "mindmap", "bubbles"] as const;
 /** How long each hero view holds before the switcher advances, in ms. */
 export const HERO_ROTATE_MS = 3000;
 
+/**
+ * The offline promise, highlighted under the hero. It is the thing that makes a
+ * stranger comfortable running a disk scanner, so it says plainly what does and
+ * does not leave the machine — including the one call that does.
+ */
+export const OFFLINE_PROMISE = {
+  title: "Runs offline, entirely on your Mac",
+  body:
+    "Scanning, hashing and duplicate matching all happen locally. There is no account, no sync and no analytics, and not one filename, path or folder listing is ever uploaded. The only time DiskBuddy talks to a server is to check your licence key, and it keeps working for two weeks without one.",
+};
+
 export const CAPABILITIES = [
+  "Works offline",
   "Apple silicon & Intel",
   "APFS aware",
   "External volumes",
@@ -89,7 +101,7 @@ export const FEATURES: Feature[] = [
   {
     title: "Uninstall apps and their leftovers",
     body:
-      "Every app is listed with its true footprint — bundle plus the caches, preferences, HTTP storage and logs it scattered across your Library. Uninstall Completely takes the whole set, not just the icon you dragged to the Trash.",
+      "Every app is listed with its true footprint - bundle plus the caches, preferences, HTTP storage and logs it scattered across your Library. Uninstall Completely takes the whole set, not just the icon you dragged to the Trash.",
     icon: "apps",
     span: 3,
     image: {
@@ -100,7 +112,7 @@ export const FEATURES: Feature[] = [
   {
     title: "Find what's old, not just what's big",
     body:
-      "The Age Map splits your bytes by last-modified date and surfaces Big & Untouched — large files you haven't opened in over a year. Stage the whole set for cleanup in one click.",
+      "The Age Map splits your bytes by last-modified date and surfaces Big & Untouched, large files you haven't opened in over a year. Stage the whole set for cleanup in one click.",
     icon: "calendar",
     span: 3,
     image: {
@@ -111,7 +123,7 @@ export const FEATURES: Feature[] = [
   {
     title: "Duplicates, by content",
     body:
-      "Byte-for-byte matching finds real duplicates across every folder you scan — not just files that happen to share a name.",
+      "Byte-for-byte matching finds real duplicates across every folder you scan, not just files that happen to share a name.",
     icon: "duplicate",
     span: 2,
   },
@@ -132,7 +144,7 @@ export const FEATURES: Feature[] = [
   {
     title: "Nothing leaves without you",
     body:
-      "Items go to a staged cleanup list first. You review the whole set, then decide — DiskBuddy never deletes in the background.",
+      "Items go to a staged cleanup list first. You review the whole set, then decide - DiskBuddy never deletes in the background.",
     icon: "broom",
     span: 6,
   },
@@ -144,7 +156,7 @@ export const FAQ_GROUPS = [
     items: [
       {
         q: "What does DiskBuddy actually do?",
-        a: "It scans a drive or folder and maps every byte, then gives you eight ways to look at the result — treemap, folders, sunburst, flame, bubbles, mind map, top sizes and age map. From there you can inspect anything, reveal it in Finder, Quick Look it, or stage it for cleanup.",
+        a: "It scans a drive or folder and maps every byte, then gives you eight ways to look at the result - treemap, folders, sunburst, flame, bubbles, mind map, top sizes and age map. From there you can inspect anything, reveal it in Finder, Quick Look it, or stage it for cleanup.",
       },
       {
         q: "How fast is a scan?",
@@ -152,7 +164,7 @@ export const FAQ_GROUPS = [
       },
       {
         q: "Can I scan external and network drives?",
-        a: "Yes. Scan your full Mac, your home folder, or point DiskBuddy at any folder or mounted volume — external SSDs and network shares included.",
+        a: "Yes. Scan your full Mac, your home folder, or point DiskBuddy at any folder or mounted volume, external SSDs and network shares included.",
       },
       {
         q: "What does the inspector tell me?",
@@ -165,7 +177,7 @@ export const FAQ_GROUPS = [
     items: [
       {
         q: "Does DiskBuddy send anything off my Mac?",
-        a: "No. Scanning, hashing and duplicate matching all happen locally. There's no account, no sync, and no analytics pipeline — the app has no reason to talk to a server.",
+        a: "No. Scanning, hashing and duplicate matching all happen locally. There's no account, no sync, and no analytics pipeline - the app has no reason to talk to a server.",
       },
       {
         q: "Can it delete something I still need?",
@@ -173,7 +185,7 @@ export const FAQ_GROUPS = [
       },
       {
         q: "What are Snapshots for?",
-        a: "Snapshots keep the result of a past scan so you can compare it against today's and see exactly which folders grew — useful when a drive fills up and you want to know what changed.",
+        a: "Snapshots keep the result of a past scan so you can compare it against today's and see exactly which folders grew, useful when a drive fills up and you want to know what changed.",
       },
     ],
   },
@@ -183,7 +195,7 @@ export const FAQ_GROUPS = [
       {
         q: "How much is it?",
         // `{price}` is swapped for the visitor's currency when rendered.
-        a: "{price}, paid once. There is no subscription and no account to make — you get a licence key, and every 1.x update is included.",
+        a: "{price}, paid once. There is no subscription and no account to make - you get a licence key, and every 1.x update is included.",
       },
       {
         q: "How do I activate it?",
@@ -193,12 +205,12 @@ export const FAQ_GROUPS = [
         q: "How many Macs does one key cover?",
         a:
           SEATS === 1
-            ? "One at a time. If you move to a new Mac, open Settings on the old one and choose Deactivate This Mac — that frees the key to activate somewhere else."
+            ? "One at a time. If you move to a new Mac, open Settings on the old one and choose Deactivate This Mac, which frees the key to activate somewhere else."
             : `Up to ${SEATS}. Settings has a Deactivate This Mac button when you need to move a seat.`,
       },
       {
         q: "Does it need to be online?",
-        a: "Only to activate. After that DiskBuddy re-checks the key in the background when it can, and keeps working for two weeks without ever reaching the internet — so a flight or a bad café Wi-Fi never locks you out.",
+        a: "Only to activate. After that DiskBuddy re-checks the key in the background when it can, and keeps working for two weeks without ever reaching the internet, so a flight or a bad café Wi-Fi never locks you out.",
       },
       {
         q: "I lost my key.",

@@ -7,7 +7,7 @@ const INCLUDED = [
   "Duplicate finder and complete app uninstaller",
   "Snapshots, live monitor and the staged cleanup queue",
   "Every future 1.x update, free",
-  `Works on ${SEATS === 1 ? "one Mac" : `${SEATS} Macs`} — move it whenever you like`,
+  `Works on ${SEATS === 1 ? "one Mac" : `${SEATS} Macs`}, move it whenever you like`,
 ];
 
 export function Pricing() {
@@ -73,7 +73,7 @@ export function Pricing() {
 
           <p className="mt-6 text-center text-[12.5px] leading-[1.6] text-ink-muted">
             Payments and VAT are handled by Dodo Payments. Your licence key
-            arrives by email the moment the payment clears — and is shown on
+            arrives by email the moment the payment clears, and is shown on
             screen straight after checkout.
           </p>
         </div>
