@@ -2,7 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import type { ComponentProps, ReactNode } from "react";
 import { AppleIcon } from "./icons";
-import { DMG_FILE, DMG_PATH, PRICE, checkoutURL } from "@/lib/product";
+import { DMG_FILE, DMG_PATH, PRICING, checkoutURL } from "@/lib/product";
+import { PerRegion } from "./region";
 
 /* -------------------------------------------------------------- Buttons */
 
@@ -56,18 +57,25 @@ export function DownloadButton({
 /**
  * Sends the visitor to Dodo's hosted checkout. It is a full navigation rather
  * than a popup so the payment page owns the whole viewport on mobile.
+ *
+ * One button is emitted per region — the price is in the label, and a region
+ * may checkout against its own Dodo product — and CSS shows only the visitor's.
  */
 export function BuyButton({
   className = "",
-  label = `Buy DiskBuddy — ${PRICE}`,
+  label,
 }: {
   className?: string;
   label?: string;
 }) {
   return (
-    <Button href={checkoutURL} className={className}>
-      {label}
-    </Button>
+    <PerRegion
+      render={(region) => (
+        <Button href={checkoutURL(region)} className={className}>
+          {label ?? `Buy DiskBuddy — ${PRICING[region].price}`}
+        </Button>
+      )}
+    />
   );
 }
 

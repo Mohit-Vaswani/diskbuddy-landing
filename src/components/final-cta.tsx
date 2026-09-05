@@ -1,5 +1,5 @@
 import { BuyButton, DownloadButton } from "./ui";
-import { PRICE } from "@/lib/product";
+import { Price } from "./region";
 
 export function FinalCta() {
   return (
@@ -28,7 +28,7 @@ export function FinalCta() {
             <DownloadButton className="px-6 py-3 text-[14px]" />
           </div>
           <p className="text-[12.5px] text-ink-muted">
-            {PRICE} once · macOS 14 or later · Apple silicon &amp; Intel
+            <Price /> once · macOS 14 or later · Apple silicon &amp; Intel
           </p>
         </div>
       </div>

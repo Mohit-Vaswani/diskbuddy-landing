@@ -5,7 +5,7 @@ import { useCallback, useEffect, useState } from "react";
 import { HERO_ROTATE_MS, HERO_VIEWS, VIEWS } from "./site-data";
 import { BuyButton, DownloadButton } from "./ui";
 import { AppleIcon } from "./icons";
-import { PRICE } from "@/lib/product";
+import { Price } from "./region";
 
 const TABS = HERO_VIEWS.map(
   (id) => VIEWS.find((view) => view.id === id)!,
@@ -82,7 +82,7 @@ export function Hero() {
               <DownloadButton className="px-6 py-3 text-[14px]" />
             </div>
             <p className="text-[12.5px] text-ink-muted">
-              {PRICE} once · macOS 14 or later · No subscription
+              <Price /> once · macOS 14 or later · No subscription
             </p>
           </div>
         </div>

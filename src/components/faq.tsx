@@ -4,6 +4,8 @@ import { useState } from "react";
 import { FAQ_GROUPS } from "./site-data";
 import { SectionHeading } from "./ui";
 import { ChevronIcon } from "./icons";
+import { withPrice } from "./region";
+import { SUPPORT_EMAIL } from "@/lib/product";
 
 function Item({ q, a }: { q: string; a: string }) {
   const [open, setOpen] = useState(false);
@@ -35,7 +37,7 @@ function Item({ q, a }: { q: string; a: string }) {
       >
         <div className="overflow-hidden">
           <p className="pb-5 pr-10 text-[14px] leading-[1.68] text-ink-soft text-pretty">
-            {a}
+            {withPrice(a)}
           </p>
         </div>
       </div>
@@ -72,7 +74,7 @@ export function Faq() {
       <p className="mt-12 text-center text-[13px] text-ink-muted">
         Still stuck?{" "}
         <a
-          href="mailto:hello@diskbuddy.app"
+          href={`mailto:${SUPPORT_EMAIL}`}
           className="text-accent underline decoration-accent/35 underline-offset-4 transition-colors hover:decoration-accent"
         >
           Email the team

@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
+import { RegionScript } from "@/components/region";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -52,7 +54,15 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-paper text-ink">
+        <RegionScript />
         {children}
+        {/* DataFast analytics. In the root layout so it loads on every route. */}
+        <Script
+          src="https://datafa.st/js/script.js"
+          data-website-id="dfid_4cL0Ro3JBk8saXdezj9ds"
+          data-domain="diskbuddy.com"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   );

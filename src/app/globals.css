@@ -127,3 +127,17 @@ body {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* ---------------------------------------------------------------
+   Regional pricing. Every region's price is in the HTML; these are
+   the rest-of-world defaults, and RegionScript appends a stylesheet
+   that overrides them for visitors it places in another region.
+   `display: contents` lets a gate wrap flex children — the buy
+   button — without becoming a box of its own.
+---------------------------------------------------------------- */
+[data-price-region] {
+  display: none;
+}
+[data-price-region="row"] {
+  display: contents;
+}

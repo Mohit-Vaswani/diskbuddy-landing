@@ -55,11 +55,22 @@ Dodo product. Buy buttons point at Dodo's hosted checkout with `redirect_url`
 set to `/thanks`, which reads `status`, `license_key` and `email` off the query
 string and shows the buyer their key without making them go to their inbox.
 
+Prices are per region — `PRICING` in the same file, keyed by `row` (rest of
+world) and `in` (India). Every region's price ships in the HTML at once;
+`globals.css` shows the rest-of-world one by default, and the inline script in
+`src/components/region.tsx` appends a stylesheet before first paint that
+reveals another region's when the visitor's timezone says so. Nothing is
+request-time, so the page stays statically cached with no flash of the wrong
+currency, and React's tree is never touched — hence a stylesheet rather than
+an attribute on `<html>`, which would trip a hydration mismatch. Use
+`<Price />` for a bare price and the `{price}` token in `site-data.ts` copy; a
+region only needs its own `productId` if Dodo holds a separate product for it.
+
 The DMG is served straight out of `public/downloads/`. Do not put a build there
 by hand — `make dmg` in the app repo copies it in only after notarization.
 
 ## Things to wire up before launch
 
-- `DODO_PRODUCT_ID` and `PRICE` in `src/lib/product.ts` are placeholders.
-- The X link in the footer and `hello@diskbuddy.app` in the FAQ are placeholders.
+- `DODO_PRODUCT_ID` in `src/lib/product.ts` is a placeholder.
+- The X link in the footer is a placeholder.
 - `metadataBase` in `src/app/layout.tsx` is set to `https://diskbuddy.app`.

@@ -1,6 +1,6 @@
 /** Every string on the page lives here so copy edits never touch layout code. */
 
-import { PRICE, SEATS, SUPPORT_EMAIL } from "@/lib/product";
+import { SEATS, SUPPORT_EMAIL } from "@/lib/product";
 
 export const VIEWS = [
   {
@@ -182,7 +182,8 @@ export const FAQ_GROUPS = [
     items: [
       {
         q: "How much is it?",
-        a: `${PRICE}, paid once. There is no subscription and no account to make — you get a licence key, and every 1.x update is included.`,
+        // `{price}` is swapped for the visitor's currency when rendered.
+        a: "{price}, paid once. There is no subscription and no account to make — you get a licence key, and every 1.x update is included.",
       },
       {
         q: "How do I activate it?",

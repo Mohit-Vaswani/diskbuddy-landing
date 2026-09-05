@@ -1,5 +1,6 @@
-import { DMG_SIZE, PRICE, SEATS } from "@/lib/product";
+import { DMG_SIZE, SEATS } from "@/lib/product";
 import { BuyButton, DownloadButton, SectionHeading } from "./ui";
+import { Price } from "./region";
 
 const INCLUDED = [
   "All eight visualisations, no feature held back",
@@ -36,7 +37,7 @@ export function Pricing() {
 
               <div className="mt-4 flex items-baseline gap-2">
                 <span className="display text-[3.4rem] leading-none">
-                  {PRICE}
+                  <Price />
                 </span>
                 <span className="text-[14px] text-ink-muted">
                   one-time
