@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import { RegionScript } from "@/components/region";
+import { SITE_URL } from "@/lib/product";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -18,7 +19,7 @@ const description =
   "DiskBuddy is a Mac disk space analyzer that maps every byte on your drive — eight ways to see it, duplicate and leftover detection, and a staged cleanup that never deletes anything behind your back.";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://diskbuddy.app"),
+  metadataBase: new URL(SITE_URL),
   title: {
     default: "DiskBuddy — See what's eating your Mac's disk",
     template: "%s · DiskBuddy",

@@ -66,6 +66,15 @@ an attribute on `<html>`, which would trip a hydration mismatch. Use
 `<Price />` for a bare price and the `{price}` token in `site-data.ts` copy; a
 region only needs its own `productId` if Dodo holds a separate product for it.
 
+Buy buttons go to `/api/checkout?region=…` rather than straight to Dodo. That
+route reads the `datafast_visitor_id` cookie DataFast sets, creates a Dodo
+checkout session with it in `metadata`, and redirects to the session URL —
+which is what lets Dodo's webhook report the sale back to DataFast against the
+visitor who earned it. It needs `DODO_PAYMENTS_API_KEY` in the environment
+(`DODO_PAYMENTS_ENVIRONMENT=test_mode` to hit Dodo's test API). Without a key,
+or on any error, it falls back to the plain payment link — attribution is worth
+a redirect, never a lost sale. It is the only route that is not static.
+
 The DMG is served straight out of `public/downloads/`. Do not put a build there
 by hand — `make dmg` in the app repo copies it in only after notarization.
 
@@ -73,4 +82,5 @@ by hand — `make dmg` in the app repo copies it in only after notarization.
 
 - `DODO_PRODUCT_ID` in `src/lib/product.ts` is a placeholder.
 - The X link in the footer is a placeholder.
-- `metadataBase` in `src/app/layout.tsx` is set to `https://diskbuddy.app`.
+- `DODO_PAYMENTS_API_KEY` must be set in the host environment for revenue
+  attribution to work; the DataFast webhook is configured in Dodo's dashboard.

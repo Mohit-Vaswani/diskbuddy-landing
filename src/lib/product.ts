@@ -11,7 +11,7 @@ export const DMG_FILE = `DiskBuddy-${VERSION}.dmg`;
 export const DMG_PATH = `/downloads/${DMG_FILE}`;
 export const DMG_SIZE = "6.2 MB";
 
-export const SITE_URL = "https://diskbuddy.app";
+export const SITE_URL = "https://www.diskbuddy.com";
 export const SUPPORT_EMAIL = "epictools.io@gmail.com";
 
 /** Devices one key unlocks. Must match the activation limit on the Dodo product. */
@@ -24,6 +24,11 @@ export type Region = "row" | "in";
 
 /** Every region, in the order their markup is emitted. */
 export const REGIONS = ["row", "in"] as const;
+
+/** Narrows untrusted input — a query string, say — to a region we actually price. */
+export function isRegion(value: string | null | undefined): value is Region {
+  return REGIONS.some((region) => region === value);
+}
 
 /**
  * The price as it is *displayed*, per region. The amount actually charged is
