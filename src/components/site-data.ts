@@ -75,6 +75,20 @@ export const OFFLINE_PROMISE = {
     "Scanning, hashing and duplicate matching all happen locally. There is no account, no sync and no analytics, and not one filename, path or folder listing is ever uploaded. The only time DiskBuddy talks to a server is to check your licence key, and it keeps working for two weeks without one.",
 };
 
+/**
+ * Launch pricing, deliberately written as three pieces rather than one
+ * sentence: a badge to label it, a line to state the terms, and a short kicker
+ * to land the consequence on its own. The card sets each one differently.
+ *
+ * No countdown and no "N left" — there is nothing wired up that could count
+ * sales, and a number the page cannot back up is worth less than the claim.
+ */
+export const LAUNCH_OFFER = {
+  badge: "Launch price",
+  lead: "The first ten copies go at {price}.",
+  kicker: "The eleventh pays more.",
+};
+
 export const CAPABILITIES = [
   "Works offline",
   "Apple silicon & Intel",

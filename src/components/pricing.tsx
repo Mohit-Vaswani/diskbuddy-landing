@@ -1,6 +1,7 @@
 import { DMG_SIZE, SEATS } from "@/lib/product";
 import { BuyButton, DownloadButton, SectionHeading } from "./ui";
-import { Price } from "./region";
+import { Price, withPrice } from "./region";
+import { LAUNCH_OFFER } from "./site-data";
 
 const INCLUDED = [
   "All eight visualisations, no feature held back",
@@ -33,7 +34,13 @@ export function Pricing() {
             />
 
             <div className="relative">
-              <p className="eyebrow">DiskBuddy for Mac</p>
+              <div className="flex items-center justify-between gap-3">
+                <p className="eyebrow">DiskBuddy for Mac</p>
+                <span className="inline-flex shrink-0 items-center gap-1.5 rounded-full border border-accent/20 bg-accent-soft/60 px-2.5 py-1 text-[10.5px] font-semibold uppercase tracking-[0.12em] text-accent">
+                  <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-accent" />
+                  {LAUNCH_OFFER.badge}
+                </span>
+              </div>
 
               <div className="mt-4 flex items-baseline gap-2">
                 <span className="display text-[3.4rem] leading-none">
@@ -42,6 +49,17 @@ export function Pricing() {
                 <span className="text-[14px] text-ink-muted">
                   one-time
                 </span>
+              </div>
+
+              {/* Two beats, set apart by an accent rule: the terms, then the
+                  consequence on its own line so it actually lands. */}
+              <div className="mt-5 border-l-2 border-accent/30 pl-3.5">
+                <p className="text-[13.5px] leading-[1.55] text-ink-soft">
+                  {withPrice(LAUNCH_OFFER.lead)}
+                </p>
+                <p className="mt-0.5 text-[13.5px] font-semibold leading-[1.55] tracking-[-0.012em] text-ink">
+                  {LAUNCH_OFFER.kicker}
+                </p>
               </div>
 
               <ul className="mt-7 space-y-3">
