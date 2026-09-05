@@ -10,18 +10,18 @@ import Image from "next/image";
  */
 export function Logo({ className = "" }: { className?: string }) {
   return (
-    <span className={`inline-flex items-center gap-2 ${className}`}>
+    <span className={`inline-flex items-center gap-2.5 ${className}`}>
       <Image
         src="/logo-mark.png"
         // The wordmark next to it already names the product, so the icon is
         // decorative and an alt would just be read out twice.
         alt=""
-        width={22}
-        height={22}
+        width={26}
+        height={26}
         priority
-        className="shrink-0 rounded-[6px]"
+        className="shrink-0 rounded-[7px]"
       />
-      <span className="text-[15px] font-semibold tracking-[-0.02em]">
+      <span className="text-[17px] font-semibold tracking-[-0.02em]">
         DiskBuddy
       </span>
     </span>
