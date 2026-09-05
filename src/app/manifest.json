@@ -1,0 +1,9 @@
+{
+  "name": "DiskBuddy",
+  "short_name": "DiskBuddy",
+  "description": "See what's eating your Mac's disk.",
+  "start_url": "/",
+  "theme_color": "#ffffff",
+  "background_color": "#ffffff",
+  "display": "standalone"
+}
