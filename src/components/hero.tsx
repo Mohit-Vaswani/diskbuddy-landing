@@ -40,20 +40,9 @@ export function Hero() {
   }, []);
 
   return (
+    // overflow-hidden stays: the screenshot is rotated on a 2200px
+    // perspective, and without the clip its far edge can widen the page.
     <section className="relative overflow-hidden">
-      {/* Orange wash behind the hero — a wide bed of accent light whose core
-          sits under the screenshot, so the window reads as lit from behind
-          rather than pasted onto white. Spans the whole section; the section
-          clips it, so the 165vw width never opens a scrollbar. */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0"
-      >
-        <div className="absolute left-1/2 top-[210px] h-[1020px] w-[min(2200px,165vw)] -translate-x-1/2 rounded-[50%] bg-[radial-gradient(ellipse_at_center,rgba(56,170,248,0.34),rgba(90,190,252,0.24)_34%,rgba(150,215,253,0.15)_56%,transparent_74%)] blur-[90px]" />
-        <div className="absolute left-[4%] top-[430px] h-[520px] w-[min(680px,52vw)] rounded-full bg-[radial-gradient(circle,rgba(70,180,250,0.28),transparent_70%)] blur-[80px]" />
-        <div className="absolute right-[2%] top-[380px] h-[520px] w-[min(680px,52vw)] rounded-full bg-[radial-gradient(circle,rgba(40,160,246,0.28),transparent_70%)] blur-[80px]" />
-      </div>
-
       <div className="relative mx-auto max-w-6xl px-5 pb-20 pt-16 sm:px-8 sm:pt-24">
         <div className="text-center">
           <p className="rise mb-7 inline-flex items-center gap-2 rounded-full border border-line bg-surface/70 px-3.5 py-1.5 text-[12.5px] text-ink-soft backdrop-blur-sm">
