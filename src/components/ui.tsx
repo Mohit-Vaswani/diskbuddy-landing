@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import type { ComponentProps, ReactNode } from "react";
 import { AppleIcon } from "./icons";
-import { DMG_FILE, DMG_PATH, PRICING } from "@/lib/product";
+import { DMG_FILE, DMG_PATH } from "@/lib/product";
 import { PerRegion } from "./region";
 
 /* -------------------------------------------------------------- Buttons */
@@ -66,8 +66,8 @@ export function DownloadButton({
  * checkout session for every button that merely scrolled into view. `nofollow`
  * keeps crawlers from doing the same.
  *
- * One button is emitted per region — the price is in the label, and a region
- * may checkout against its own Dodo product — and CSS shows only the visitor's.
+ * One button is emitted per region, because a region may check out against its
+ * own Dodo product, and CSS shows only the visitor's.
  */
 export function BuyButton({
   className = "",
@@ -84,7 +84,7 @@ export function BuyButton({
           rel="nofollow"
           className={buttonClass("solid", className)}
         >
-          {label ?? `Buy DiskBuddy - ${PRICING[region].price}`}
+          {label ?? "Buy DiskBuddy"}
         </a>
       )}
     />
