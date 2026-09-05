@@ -1,0 +1,129 @@
+@import "tailwindcss";
+
+/* ---------------------------------------------------------------
+   DiskBuddy palette — white ground, near-black type, one orange
+   accent. The accent is AA-legible on white in both directions, so
+   the same value carries link text and the solid button fill;
+   --accent-bright is decorative only (glows, washes, hovers).
+---------------------------------------------------------------- */
+:root {
+  --paper: #ffffff;
+  --paper-deep: #f7f6f4;
+  --surface: #ffffff;
+  --ink: #0f0e0d;
+  --ink-soft: #55524e;
+  --ink-muted: #7a756e;
+  --line: #e8e5e1;
+  --line-soft: #f2f0ec;
+
+  --accent: #cb4f08;
+  --accent-bright: #ff7a1a;
+  --accent-soft: #ffe4cd;
+
+  /* macOS window-chrome dots, shared by every screenshot frame */
+  --dot-red: #ff5f57;
+  --dot-amber: #febc2e;
+  --dot-green: #28c840;
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-paper-deep: var(--paper-deep);
+  --color-surface: var(--surface);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-ink-muted: var(--ink-muted);
+  --color-line: var(--line);
+  --color-line-soft: var(--line-soft);
+  --color-accent: var(--accent);
+  --color-accent-bright: var(--accent-bright);
+  --color-accent-soft: var(--accent-soft);
+
+  --color-dot-red: var(--dot-red);
+  --color-dot-amber: var(--dot-amber);
+  --color-dot-green: var(--dot-green);
+
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+  /* keeps anchored sections clear of the sticky header */
+  scroll-padding-top: 6rem;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--accent-soft);
+  color: var(--ink);
+}
+
+/* Display type: tight, optical-sized headline treatment */
+.display {
+  letter-spacing: -0.042em;
+  line-height: 0.98;
+  font-weight: 600;
+}
+
+/* Small uppercase eyebrow used above section headings */
+.eyebrow {
+  font-size: 0.6875rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: var(--ink-muted);
+}
+
+/* The dotted rule that separates the footer's two rows */
+.rule-dotted {
+  height: 1px;
+  background-image: radial-gradient(circle, var(--line) 1px, transparent 1px);
+  background-size: 6px 1px;
+  background-repeat: repeat-x;
+}
+
+/* Faint paper grain so large cream fields don't read as flat #fff */
+.grain::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.5;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.rise {
+  animation: rise 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .rise {
+    animation: none;
+  }
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+  }
+}
