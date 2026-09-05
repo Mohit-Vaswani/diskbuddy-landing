@@ -2,14 +2,10 @@
 
 import Image from "next/image";
 import { useCallback, useEffect, useState } from "react";
-import { HERO_ROTATE_MS, HERO_VIEWS, VIEWS } from "./site-data";
+import { HERO_ROTATE_MS, VIEWS } from "./site-data";
 import { BuyButton, DownloadButton } from "./ui";
 import { AppleIcon } from "./icons";
 import { Price } from "./region";
-
-const TABS = HERO_VIEWS.map(
-  (id) => VIEWS.find((view) => view.id === id)!,
-);
 
 export function Hero() {
   const [index, setIndex] = useState(0);
@@ -17,7 +13,7 @@ export function Hero() {
   const [autoplay, setAutoplay] = useState(true);
   const [paused, setPaused] = useState(false);
 
-  const current = TABS[index];
+  const current = VIEWS[index];
   const running = autoplay && !paused;
 
   // Motion-averse visitors get a static hero — no rotation, no fill sweep.
@@ -32,7 +28,7 @@ export function Hero() {
   useEffect(() => {
     if (!running) return;
     const timer = window.setTimeout(
-      () => setIndex((i) => (i + 1) % TABS.length),
+      () => setIndex((i) => (i + 1) % VIEWS.length),
       HERO_ROTATE_MS,
     );
     return () => window.clearTimeout(timer);
@@ -97,7 +93,7 @@ export function Hero() {
           onBlur={() => setPaused(false)}
           className="rise mt-14 flex flex-wrap items-center justify-center gap-2 [animation-delay:240ms]"
         >
-          {TABS.map((tab, i) => {
+          {VIEWS.map((tab, i) => {
             const selected = i === index;
             return (
               <button
@@ -138,10 +134,12 @@ export function Hero() {
               <span className="h-[9px] w-[9px] rounded-full bg-dot-green" />
             </div>
 
-            {/* All four are mounted and cross-faded so switching a tab never
-                shows a loading gap or shifts the layout. */}
+            {/* All eight are mounted and cross-faded so switching a tab never
+                shows a loading gap or shifts the layout. Only the first is
+                priority; the rest load lazily and are all needed inside one
+                24-second rotation anyway. */}
             <div className="relative aspect-[2940/1846]">
-              {TABS.map((tab, i) => (
+              {VIEWS.map((tab, i) => (
                 <Image
                   key={tab.id}
                   src={tab.src}

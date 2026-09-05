@@ -61,9 +61,6 @@ export const VIEWS = [
   },
 ] as const;
 
-/** The four views promoted to the hero switcher. */
-export const HERO_VIEWS = ["treemap", "folders", "mindmap", "bubbles"] as const;
-
 /** How long each hero view holds before the switcher advances, in ms. */
 export const HERO_ROTATE_MS = 3000;
 
