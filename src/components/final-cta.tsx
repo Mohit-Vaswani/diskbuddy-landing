@@ -9,7 +9,7 @@ export function FinalCta() {
     >
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute left-1/2 top-1/2 h-[420px] w-[900px] -translate-x-1/2 -translate-y-1/2 rounded-[50%] bg-[radial-gradient(ellipse_at_center,rgba(255,122,26,0.24),rgba(255,168,96,0.14)_45%,transparent_72%)] blur-[70px]"
+        className="pointer-events-none absolute left-1/2 top-1/2 h-[420px] w-[900px] -translate-x-1/2 -translate-y-1/2 rounded-[50%] bg-[radial-gradient(ellipse_at_center,rgba(56,170,248,0.24),rgba(120,200,252,0.14)_45%,transparent_72%)] blur-[70px]"
       />
 
       <div className="relative mx-auto max-w-2xl px-5 py-24 text-center sm:px-8 sm:py-32">

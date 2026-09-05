@@ -15,7 +15,7 @@ type ButtonProps = ComponentProps<typeof Link> & {
 function buttonClass(variant: "solid" | "ghost", className: string) {
   const styles =
     variant === "solid"
-      ? "bg-accent text-white shadow-[0_1px_0_0_rgba(255,255,255,0.18)_inset,0_8px_20px_-8px_rgba(203,79,8,0.55)] hover:bg-[#b34506] active:translate-y-px"
+      ? "bg-accent text-white shadow-[0_1px_0_0_rgba(255,255,255,0.18)_inset,0_8px_20px_-8px_rgba(10,120,200,0.55)] hover:bg-[#0862a5] active:translate-y-px"
       : "bg-surface/80 text-ink border border-line hover:border-ink/25 hover:bg-surface";
 
   return `group inline-flex items-center justify-center gap-2 rounded-full px-5 py-2.5 text-[13.5px] font-medium tracking-[-0.01em] transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${styles} ${className}`;

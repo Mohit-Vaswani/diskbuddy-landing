@@ -49,9 +49,9 @@ export function Hero() {
         aria-hidden="true"
         className="pointer-events-none absolute inset-0"
       >
-        <div className="absolute left-1/2 top-[210px] h-[1020px] w-[min(2200px,165vw)] -translate-x-1/2 rounded-[50%] bg-[radial-gradient(ellipse_at_center,rgba(255,122,26,0.34),rgba(255,146,62,0.24)_34%,rgba(255,180,124,0.15)_56%,transparent_74%)] blur-[90px]" />
-        <div className="absolute left-[4%] top-[430px] h-[520px] w-[min(680px,52vw)] rounded-full bg-[radial-gradient(circle,rgba(255,152,64,0.28),transparent_70%)] blur-[80px]" />
-        <div className="absolute right-[2%] top-[380px] h-[520px] w-[min(680px,52vw)] rounded-full bg-[radial-gradient(circle,rgba(255,118,28,0.28),transparent_70%)] blur-[80px]" />
+        <div className="absolute left-1/2 top-[210px] h-[1020px] w-[min(2200px,165vw)] -translate-x-1/2 rounded-[50%] bg-[radial-gradient(ellipse_at_center,rgba(56,170,248,0.34),rgba(90,190,252,0.24)_34%,rgba(150,215,253,0.15)_56%,transparent_74%)] blur-[90px]" />
+        <div className="absolute left-[4%] top-[430px] h-[520px] w-[min(680px,52vw)] rounded-full bg-[radial-gradient(circle,rgba(70,180,250,0.28),transparent_70%)] blur-[80px]" />
+        <div className="absolute right-[2%] top-[380px] h-[520px] w-[min(680px,52vw)] rounded-full bg-[radial-gradient(circle,rgba(40,160,246,0.28),transparent_70%)] blur-[80px]" />
       </div>
 
       <div className="relative mx-auto max-w-6xl px-5 pb-20 pt-16 sm:px-8 sm:pt-24">

@@ -1,24 +1,26 @@
 @import "tailwindcss";
 
 /* ---------------------------------------------------------------
-   DiskBuddy palette — white ground, near-black type, one orange
-   accent. The accent is AA-legible on white in both directions, so
-   the same value carries link text and the solid button fill;
-   --accent-bright is decorative only (glows, washes, hovers).
+   DiskBuddy palette: white ground, near-black type, one sky-blue
+   accent. --accent is AA-legible on white in both directions (4.63:1),
+   so the same value carries link text and the solid button fill.
+   --accent-bright is decorative only, for glows, gradient washes and
+   hovers, and is never put behind text: at 2.14:1 it would fail.
+   The greys are cooled to sit under a blue accent rather than a warm one.
 ---------------------------------------------------------------- */
 :root {
   --paper: #ffffff;
-  --paper-deep: #f7f6f4;
+  --paper-deep: #f5f8fb;
   --surface: #ffffff;
-  --ink: #0f0e0d;
-  --ink-soft: #55524e;
-  --ink-muted: #7a756e;
-  --line: #e8e5e1;
-  --line-soft: #f2f0ec;
+  --ink: #0e1116;
+  --ink-soft: #4c5563;
+  --ink-muted: #6b7480;
+  --line: #e2e8f0;
+  --line-soft: #eef2f7;
 
-  --accent: #cb4f08;
-  --accent-bright: #ff7a1a;
-  --accent-soft: #ffe4cd;
+  --accent: #0a78c8;
+  --accent-bright: #38bdf8;
+  --accent-soft: #dceefc;
 
   /* macOS window-chrome dots, shared by every screenshot frame */
   --dot-red: #ff5f57;

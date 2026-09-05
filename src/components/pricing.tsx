@@ -30,7 +30,7 @@ export function Pricing() {
                 one destination rather than another content block. */}
             <div
               aria-hidden="true"
-              className="pointer-events-none absolute -right-16 -top-20 h-56 w-56 rounded-full bg-[radial-gradient(circle,rgba(255,122,26,0.22),transparent_68%)] blur-[50px]"
+              className="pointer-events-none absolute -right-16 -top-20 h-56 w-56 rounded-full bg-[radial-gradient(circle,rgba(56,170,248,0.22),transparent_68%)] blur-[50px]"
             />
 
             <div className="relative">

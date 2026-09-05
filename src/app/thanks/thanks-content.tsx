@@ -146,7 +146,7 @@ function Shell({
     <main className="grain relative flex min-h-screen flex-col">
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute left-1/2 top-0 h-[560px] w-[min(1400px,140vw)] -translate-x-1/2 rounded-[50%] bg-[radial-gradient(ellipse_at_center,rgba(255,122,26,0.26),rgba(255,168,96,0.14)_44%,transparent_72%)] blur-[80px]"
+        className="pointer-events-none absolute left-1/2 top-0 h-[560px] w-[min(1400px,140vw)] -translate-x-1/2 rounded-[50%] bg-[radial-gradient(ellipse_at_center,rgba(56,170,248,0.26),rgba(120,200,252,0.14)_44%,transparent_72%)] blur-[80px]"
       />
 
       <div className="relative mx-auto w-full max-w-lg px-5 py-20 text-center sm:px-8 sm:py-28">
