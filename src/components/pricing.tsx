@@ -58,7 +58,7 @@ export function Pricing() {
                   {withPrice(LAUNCH_OFFER.lead)}
                 </p>
                 <p className="mt-0.5 text-[13.5px] font-semibold leading-[1.55] tracking-[-0.012em] text-ink">
-                  {LAUNCH_OFFER.kicker}
+                  {withPrice(LAUNCH_OFFER.kicker)}
                 </p>
               </div>
 

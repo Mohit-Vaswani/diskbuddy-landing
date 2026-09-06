@@ -35,13 +35,20 @@ export function isRegion(value: string | null | undefined): value is Region {
  * set on the product in the Dodo dashboard; this is only the label, so change
  * both together.
  *
+ * `nextPrice` is what the launch offer says the price rises to. Nothing
+ * charges it yet — it is a promise the card makes, so when the launch window
+ * closes, `price` has to be moved to it here *and* in the Dodo dashboard.
+ *
  * `productId` only needs its own value where Dodo holds a *separate* product
  * for that region. Left at the shared id, the buyer lands on the same checkout
  * and Dodo decides the currency there.
  */
-export const PRICING: Record<Region, { price: string; productId: string }> = {
-  row: { price: "$12", productId: DODO_PRODUCT_ID },
-  in: { price: "₹699", productId: DODO_PRODUCT_ID },
+export const PRICING: Record<
+  Region,
+  { price: string; nextPrice: string; productId: string }
+> = {
+  row: { price: "$12", nextPrice: "$20", productId: DODO_PRODUCT_ID },
+  in: { price: "₹699", nextPrice: "₹1,199", productId: DODO_PRODUCT_ID },
 };
 
 /**

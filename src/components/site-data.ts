@@ -80,13 +80,14 @@ export const OFFLINE_PROMISE = {
  * sentence: a badge to label it, a line to state the terms, and a short kicker
  * to land the consequence on its own. The card sets each one differently.
  *
- * No countdown and no "N left" — there is nothing wired up that could count
- * sales, and a number the page cannot back up is worth less than the claim.
+ * The "3 left" in `lead` is typed by hand. Nothing on the site counts sales,
+ * so it does not tick down on its own — edit it here as copies sell, because
+ * it is a false claim on the page until someone does.
  */
 export const LAUNCH_OFFER = {
   badge: "Launch price",
-  lead: "The first ten copies go at {price}.",
-  kicker: "The eleventh pays more.",
+  lead: "Only 3 left at {price}.",
+  kicker: "Then {nextPrice} for the next 20 customers.",
 };
 
 export const CAPABILITIES = [

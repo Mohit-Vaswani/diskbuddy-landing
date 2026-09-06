@@ -60,15 +60,25 @@ export function Price() {
   return <PerRegion render={(region) => PRICING[region].price} />;
 }
 
+/** What the launch offer says the price rises to, in the visitor's currency. */
+export function NextPrice() {
+  return <PerRegion render={(region) => PRICING[region].nextPrice} />;
+}
+
+const TOKENS = {
+  "{price}": Price,
+  "{nextPrice}": NextPrice,
+} as const;
+
 /**
- * Copy in site-data.ts is plain text, so it marks the price with a `{price}`
- * token rather than JSX. This swaps the token for a live `<Price />`.
+ * Copy in site-data.ts is plain text, so it marks a price with a `{price}` or
+ * `{nextPrice}` token rather than JSX. This swaps each token for the live,
+ * region-gated component. Splitting on a capturing group keeps the delimiters,
+ * so the odd-indexed pieces are exactly the tokens.
  */
 export function withPrice(text: string) {
-  return text.split("{price}").map((chunk, i) => (
-    <Fragment key={i}>
-      {i > 0 ? <Price /> : null}
-      {chunk}
-    </Fragment>
-  ));
+  return text.split(/(\{price\}|\{nextPrice\})/).map((chunk, i) => {
+    const Token = TOKENS[chunk as keyof typeof TOKENS];
+    return <Fragment key={i}>{Token ? <Token /> : chunk}</Fragment>;
+  });
 }
