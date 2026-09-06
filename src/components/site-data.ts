@@ -251,6 +251,14 @@ export const FAQ_GROUPS = [
  */
 export const TWEETS = [
   {
+    id: "2096644005647843368",
+    name: "Hans",
+    handle: "hans_malkow",
+    avatar: "/avatars/hans_malkow.jpg",
+    text: "I don’t see why this does not cost $49",
+    date: "Sep 6, 2026",
+  },
+  {
     id: "2096469371057054024",
     name: "Ojash",
     handle: "Ojash_101",
