@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Script from "next/script";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import { RegionScript } from "@/components/region";
 import { SITE_URL } from "@/lib/product";
@@ -60,6 +61,12 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className="min-h-full flex flex-col bg-paper text-ink">
         <RegionScript />
         {children}
+        {/*
+          Vercel Web Analytics. The component renders nothing and injects its
+          own script, and it counts client-side navigations itself rather than
+          relying on a history listener the way the two tags below do.
+        */}
+        <Analytics />
         {/* DataFast analytics. In the root layout so it loads on every route. */}
         <Script
           src="https://datafa.st/js/script.js"
