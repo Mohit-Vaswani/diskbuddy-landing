@@ -4,13 +4,6 @@ import { SEATS, SUPPORT_EMAIL } from "@/lib/product";
 
 export const VIEWS = [
   {
-    id: "treemap",
-    name: "Treemap",
-    caption: "Every file as a rectangle, sized by bytes",
-    src: "/screens/treemap.jpeg",
-    alt: "DiskBuddy treemap view showing a 119 GB home folder broken into nested coloured rectangles.",
-  },
-  {
     id: "folders",
     name: "Folders",
     caption: "Browse folder by folder, sized as you go",
@@ -58,6 +51,13 @@ export const VIEWS = [
     caption: "Where your bytes sit on a timeline",
     src: "/screens/age-map.png",
     alt: "DiskBuddy age map with a bytes-by-age breakdown and a last-modified month heatmap.",
+  },
+  {
+    id: "treemap",
+    name: "Treemap",
+    caption: "Every file as a rectangle, sized by bytes",
+    src: "/screens/treemap.jpeg",
+    alt: "DiskBuddy treemap view showing a 119 GB home folder broken into nested coloured rectangles.",
   },
 ] as const;
 
@@ -168,7 +168,7 @@ export const FAQ_GROUPS = [
     items: [
       {
         q: "What does DiskBuddy actually do?",
-        a: "It scans a drive or folder and maps every byte, then gives you eight ways to look at the result - treemap, folders, sunburst, flame, bubbles, mind map, top sizes and age map. From there you can inspect anything, reveal it in Finder, Quick Look it, or stage it for cleanup.",
+        a: "It scans a drive or folder and maps every byte, then gives you eight ways to look at the result - folders, sunburst, flame, bubbles, mind map, top sizes, age map and treemap. From there you can inspect anything, reveal it in Finder, Quick Look it, or stage it for cleanup.",
       },
       {
         q: "How fast is a scan?",
