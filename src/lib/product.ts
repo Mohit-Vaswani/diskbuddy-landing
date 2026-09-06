@@ -47,8 +47,38 @@ export const PRICING: Record<
   Region,
   { price: string; nextPrice: string; productId: string }
 > = {
-  row: { price: "$12", nextPrice: "$20", productId: DODO_PRODUCT_ID },
+  row: { price: "$12", nextPrice: "$19", productId: DODO_PRODUCT_ID },
   in: { price: "₹699", nextPrice: "₹1,199", productId: DODO_PRODUCT_ID },
+};
+
+/** One rung of the launch price ladder. `delta` is what it adds to rung one. */
+export type PriceTier = { price: string; delta?: string };
+
+/**
+ * The launch price ladder, cheapest rung first, drawn above the pricing card.
+ *
+ * Rung one is `price` above and rung two is `nextPrice`, because the card
+ * names both in prose — move all three together or the section contradicts
+ * itself. Rung three is only ever a promise, so it lives here alone.
+ *
+ * `delta` is written out rather than subtracted at render: the regions share
+ * neither a currency nor a rounding, and a computed "+₹500" would have to
+ * reimplement both.
+ *
+ * How many copies are left at rung one is copy, not money, so it sits with the
+ * rest of the ladder's wording in site-data.ts.
+ */
+export const PRICE_LADDER: Record<Region, readonly PriceTier[]> = {
+  row: [
+    { price: "$12" },
+    { price: "$19", delta: "+$7" },
+    { price: "$39", delta: "+$27" },
+  ],
+  in: [
+    { price: "₹699" },
+    { price: "₹1,199", delta: "+₹500" },
+    { price: "₹2,299", delta: "+₹1,600" },
+  ],
 };
 
 /**

@@ -1,6 +1,7 @@
 import { DMG_SIZE, SEATS } from "@/lib/product";
 import { BuyButton, DownloadButton, SectionHeading } from "./ui";
 import { Price, withPrice } from "./region";
+import { PriceLadder } from "./price-ladder";
 import { LAUNCH_OFFER } from "./site-data";
 
 const INCLUDED = [
@@ -24,7 +25,9 @@ export function Pricing() {
           lede="No subscription, no account, no upsell inside the app. One payment and DiskBuddy is yours."
         />
 
-        <div className="mx-auto mt-14 max-w-md">
+        <PriceLadder />
+
+        <div className="mx-auto mt-16 max-w-md">
           <div className="relative overflow-hidden rounded-[18px] border border-line bg-surface p-8 shadow-[0_1px_2px_rgba(15,14,13,0.04),0_28px_60px_-40px_rgba(15,14,13,0.4)]">
             {/* Faint accent wash in the corner so the card reads as the page's
                 one destination rather than another content block. */}

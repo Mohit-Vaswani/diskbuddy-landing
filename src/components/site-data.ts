@@ -80,15 +80,33 @@ export const OFFLINE_PROMISE = {
  * sentence: a badge to label it, a line to state the terms, and a short kicker
  * to land the consequence on its own. The card sets each one differently.
  *
- * The "3 left" in `lead` is typed by hand. Nothing on the site counts sales,
+ * The "2 left" in `lead` is typed by hand. Nothing on the site counts sales,
  * so it does not tick down on its own — edit it here as copies sell, because
- * it is a false claim on the page until someone does.
+ * it is a false claim on the page until someone does. It is the same count the
+ * ladder above the card shows, in PRICE_LADDER_COPY.
  */
 export const LAUNCH_OFFER = {
   badge: "Launch price",
-  lead: "Only 3 left at {price}.",
-  kicker: "Then {nextPrice} for the next 20 customers.",
+  lead: "Only 2 left at {price}.",
+  kicker: "Then {nextPrice} for the next 10 customers.",
 };
+
+/**
+ * The wording under each rung of the price ladder. It pairs with PRICE_LADDER
+ * in product.ts by position — that holds the money, this holds the English, so
+ * a rung's caption is written once rather than once per currency.
+ *
+ * `tail` is the count still going at that rung, and is hand-typed for the same
+ * reason LAUNCH_OFFER's is: change one and change the other.
+ */
+export const PRICE_LADDER_COPY = {
+  now: "You are here",
+  steps: [
+    { label: "First 15", tail: "2 left" },
+    { label: "Next 10" },
+    { label: "Everyone after" },
+  ],
+} as const;
 
 export const CAPABILITIES = [
   "Works offline",
