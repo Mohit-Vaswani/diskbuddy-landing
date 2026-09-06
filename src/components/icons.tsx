@@ -155,3 +155,28 @@ export function ArrowIcon({ className = "h-4 w-4" }: IconProps) {
     </svg>
   );
 }
+
+export function XIcon({ className = "h-4 w-4" }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true">
+      <path d="M17.53 3h3.06l-6.69 7.64L21.75 21h-6.16l-4.83-6.3L5.24 21H2.18l7.15-8.17L2 3h6.32l4.36 5.77L17.53 3zm-1.08 16.16h1.7L7.63 4.74H5.81l10.64 14.42z" />
+    </svg>
+  );
+}
+
+/** X's blue verification check, filled so it reads at 15px. */
+export function VerifiedIcon({ className = "h-4 w-4" }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true">
+      <path d="M8.6 3.8A4.49 4.49 0 0 1 12 2.25c1.36 0 2.57.6 3.4 1.55a4.49 4.49 0 0 1 3.5 1.3 4.49 4.49 0 0 1 1.3 3.5A4.49 4.49 0 0 1 21.75 12a4.49 4.49 0 0 1-1.55 3.4 4.49 4.49 0 0 1-1.3 3.5 4.49 4.49 0 0 1-3.5 1.3A4.49 4.49 0 0 1 12 21.75a4.49 4.49 0 0 1-3.4-1.55 4.49 4.49 0 0 1-3.5-1.3 4.49 4.49 0 0 1-1.3-3.5A4.49 4.49 0 0 1 2.25 12c0-1.36.6-2.57 1.55-3.4a4.49 4.49 0 0 1 1.3-3.5 4.49 4.49 0 0 1 3.5-1.3Z" />
+      <path
+        d="m8.4 12.1 2.5 2.5 4.7-5.2"
+        fill="none"
+        stroke="#fff"
+        strokeWidth="1.9"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}

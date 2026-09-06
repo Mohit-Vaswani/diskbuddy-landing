@@ -230,3 +230,51 @@ export const FAQ_GROUPS = [
     ],
   },
 ] as const;
+
+/**
+ * Replies to the launch thread, shown as tweet cards. Text is the tweet
+ * verbatim minus the leading @-mention and any trailing t.co media link;
+ * avatars are copied into /public so a rotated twimg URL can't blank the row.
+ */
+export const TWEETS = [
+  {
+    id: "2096469371057054024",
+    name: "Ojash",
+    handle: "Ojash_101",
+    avatar: "/avatars/ojash_101.jpg",
+    text: "Found it right when I needed it. Happy customer!",
+    date: "Sep 6, 2026",
+  },
+  {
+    id: "2096464631774560564",
+    name: "Octavio Simón",
+    handle: "soyoctaviosimon",
+    avatar: "/avatars/soyoctaviosimon.jpg",
+    text: "Looks cool! Just grabbed a copy to test it out",
+    date: "Sep 6, 2026",
+  },
+  {
+    id: "2096450584383558044",
+    name: "Jaisal 👋",
+    handle: "RatheeJaisal",
+    avatar: "/avatars/ratheejaisal.jpg",
+    text: "Well deserved! It’s a cool idea",
+    date: "Sep 6, 2026",
+  },
+  {
+    id: "2096447842424598571",
+    name: "Kuro AI/dev🔺⋈",
+    handle: "kurodenjiro",
+    avatar: "/avatars/kurodenjiro.jpg",
+    text: "I will try it out. Cool app",
+    date: "Sep 6, 2026",
+  },
+  {
+    id: "2096445272247468540",
+    name: "Advait",
+    handle: "AdvaitVaidya2",
+    avatar: "/avatars/advaitvaidya2.jpg",
+    text: "🙌 Congrats bro! The app looks great. Will test it out today",
+    date: "Sep 6, 2026",
+  },
+] as const;

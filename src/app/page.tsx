@@ -5,6 +5,7 @@ import { Features } from "@/components/features";
 import { ViewsGallery } from "@/components/views-gallery";
 import { Inspector } from "@/components/inspector";
 import { Stats } from "@/components/stats";
+import { Testimonials } from "@/components/testimonials";
 import { Pricing } from "@/components/pricing";
 import { Faq } from "@/components/faq";
 import { FinalCta } from "@/components/final-cta";
@@ -21,6 +22,7 @@ export default function Home() {
         <Features />
         <ViewsGallery />
         <Inspector />
+        <Testimonials />
         <Pricing />
         <Faq />
         <FinalCta />

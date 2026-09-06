@@ -8,6 +8,7 @@ import { DownloadButton } from "./ui";
 const LINKS = [
   { href: "#features", label: "Features" },
   { href: "#views", label: "Views" },
+  { href: "#testimonials", label: "Testimonials" },
   { href: "#pricing", label: "Pricing" },
   { href: "#faq", label: "FAQ" },
 ];
