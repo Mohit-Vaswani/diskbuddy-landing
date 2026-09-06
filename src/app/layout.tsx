@@ -15,6 +15,9 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+/** Google Analytics 4 measurement id, from the GA property's data stream. */
+const GA_MEASUREMENT_ID = "G-5S8N8M6Q9V";
+
 const description =
   "DiskBuddy is a Mac disk space analyzer that maps every byte on your drive, eight ways to see it, duplicate and leftover detection, and a staged cleanup that never deletes anything behind your back.";
 
@@ -64,6 +67,21 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           data-domain="diskbuddy.com"
           strategy="afterInteractive"
         />
+        {/*
+          Google Analytics 4. Client-side navigations are counted by GA's
+          enhanced measurement, which listens for history changes, so the tag
+          only has to load once here.
+        */}
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', '${GA_MEASUREMENT_ID}');`}
+        </Script>
       </body>
     </html>
   );
