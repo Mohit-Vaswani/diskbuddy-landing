@@ -1,11 +1,16 @@
-import { PRICE_LADDER } from "@/lib/product";
+import type { CSSProperties } from "react";
+import { CURRENT_RUNG, PRICE_LADDER } from "@/lib/product";
 import { PerRegion } from "./region";
 import { PRICE_LADDER_COPY } from "./site-data";
 
 /**
- * The launch price ladder: what DiskBuddy costs right now, and the two rungs
- * it climbs to. It sits above the pricing card and gives the card's "only 2
- * left" a shape — the buyer can see what waiting actually costs them.
+ * The launch price ladder: what DiskBuddy costs right now, what it cost before
+ * that, and what it climbs to. It sits above the pricing card and gives the
+ * count still going at this price a shape — the buyer can see both that the
+ * rung below has already gone and what waiting for the next one costs them.
+ *
+ * Which rung is which comes from CURRENT_RUNG, so a sell-out is one number in
+ * product.ts rather than an edit to the markup here.
  *
  * An <ol> so the rungs are announced in order and each count is read with the
  * price it belongs to. The rail and its dots restate that same order visually,
@@ -14,19 +19,24 @@ import { PRICE_LADDER_COPY } from "./site-data";
 export function PriceLadder() {
   const { now, steps } = PRICE_LADDER_COPY;
 
+  /* Where along the rail the rung on sale sits, so the accent can stop there. */
+  const railStop = `${(CURRENT_RUNG / (steps.length - 1)) * 100}%`;
+
   return (
     <div className="relative mx-auto mt-14 max-w-3xl">
       {/* The rail, inset half a column at each end so it begins and ends on
           the centre of a dot rather than running off the edge. It carries the
-          accent at the rung you are on and cools to a plain rule by the last. */}
+          accent as far as the rung you are on and is a plain rule past it. */}
       <div
         aria-hidden="true"
-        className="absolute inset-x-[16.667%] top-[7px] h-px -translate-y-1/2 bg-gradient-to-r from-accent/45 via-line to-line"
+        style={{ "--rail-stop": railStop } as CSSProperties}
+        className="absolute inset-x-[16.667%] top-[7px] h-px -translate-y-1/2 bg-[linear-gradient(to_right,rgba(10,120,200,0.45)_0%,rgba(10,120,200,0.45)_var(--rail-stop),var(--line)_var(--rail-stop),var(--line)_100%)]"
       />
 
       <ol className="relative grid grid-cols-3">
         {steps.map((step, i) => {
-          const current = i === 0;
+          const current = i === CURRENT_RUNG;
+          const spent = i < CURRENT_RUNG;
           return (
             <li
               key={step.label}
@@ -42,7 +52,11 @@ export function PriceLadder() {
                 ) : null}
                 <span
                   className={`relative h-3.5 w-3.5 rounded-[4px] ${
-                    current ? "bg-accent" : "border border-line bg-paper-deep"
+                    current
+                      ? "bg-accent"
+                      : spent
+                        ? "bg-accent/35"
+                        : "border border-line bg-paper-deep"
                   }`}
                 />
               </span>
@@ -52,26 +66,41 @@ export function PriceLadder() {
               <p className="mt-7 flex items-start justify-center gap-[0.15em]">
                 <span
                   className={`display text-[clamp(1.55rem,6.4vw,3.05rem)] ${
-                    current ? "text-ink" : "text-ink-muted/75"
+                    current
+                      ? "text-ink"
+                      : spent
+                        ? "text-ink-muted/55 line-through decoration-ink-muted/40 decoration-[1.5px]"
+                        : "text-ink-muted/75"
                   }`}
                 >
                   <TierPrice index={i} />
                 </span>
-                {current ? null : (
+                {/* Only the rungs still ahead cost anything extra. */}
+                {i > CURRENT_RUNG ? (
                   <span className="mt-[0.45em] text-[clamp(0.6rem,1.7vw,0.8rem)] font-semibold tracking-[0.01em] text-accent">
                     <TierDelta index={i} />
                   </span>
-                )}
+                ) : null}
               </p>
 
               <p className="mt-2 text-[9.5px] font-medium uppercase leading-[1.55] tracking-[0.1em] text-ink-muted sm:text-[11px] sm:tracking-[0.14em]">
                 {step.label}
                 {"tail" in step && step.tail ? (
-                  <span className="font-semibold text-accent">
+                  <>
+                    {/* The separator sits outside the tail so a narrow column
+                        breaks the line here, rather than inside "Sold out". */}
                     <span aria-hidden="true"> · </span>
                     <span className="sr-only">, </span>
-                    {step.tail}
-                  </span>
+                    <span
+                      className={`whitespace-nowrap ${
+                        current
+                          ? "font-semibold text-accent"
+                          : "text-ink-muted/70"
+                      }`}
+                    >
+                      {step.tail}
+                    </span>
+                  </>
                 ) : null}
               </p>
 

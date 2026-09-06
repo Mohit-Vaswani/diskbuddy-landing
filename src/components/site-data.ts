@@ -89,15 +89,16 @@ export const LAUNCH_OFFER = {
  * in product.ts by position — that holds the money, this holds the English, so
  * a rung's caption is written once rather than once per currency.
  *
- * `tail` is the count still going at that rung. Nothing on the site counts
- * sales, so it does not tick down on its own — edit it here as copies sell,
- * because it is a false claim on the page until someone does.
+ * `tail` is where a rung stands: sold out behind the one on sale, and how many
+ * are still going at it. Nothing on the site counts sales, so neither ticks
+ * over on its own — edit them here as copies sell, because a stale one is a
+ * false claim on the page until someone does.
  */
 export const PRICE_LADDER_COPY = {
   now: "You are here",
   steps: [
-    { label: "First 15", tail: "2 left" },
-    { label: "Next 10" },
+    { label: "First 15", tail: "Sold out" },
+    { label: "Next 10", tail: "10 left" },
     { label: "Everyone after" },
   ],
 } as const;

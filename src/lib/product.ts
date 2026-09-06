@@ -30,12 +30,53 @@ export function isRegion(value: string | null | undefined): value is Region {
   return REGIONS.some((region) => region === value);
 }
 
+/** One rung of the launch price ladder. */
+export type PriceTier = {
+  price: string;
+  /** What this rung adds to the one on sale now. Only set above CURRENT_RUNG. */
+  delta?: string;
+};
+
 /**
- * The price as it is *displayed*, per region. The amount actually charged is
- * set on the product in the Dodo dashboard; this is only the label, so change
- * both together.
+ * The launch price ladder, cheapest rung first, drawn above the pricing card.
  *
- * What the price rises to is PRICE_LADDER below, not here.
+ * Every rung's price is a label only — the amount actually charged is set on
+ * the product in the Dodo dashboard, so moving CURRENT_RUNG below means moving
+ * the Dodo product too, or the page quotes one price and the checkout takes
+ * another.
+ *
+ * `delta` is written out rather than subtracted at render: the regions share
+ * neither a currency nor a rounding, and a computed "+₹1,100" would have to
+ * reimplement both. It is measured from the rung on sale now, so the deltas
+ * need recomputing whenever CURRENT_RUNG moves.
+ *
+ * How many copies are left at a rung is copy, not money, so it sits with the
+ * rest of the ladder's wording in site-data.ts.
+ */
+export const PRICE_LADDER: Record<Region, readonly PriceTier[]> = {
+  row: [
+    { price: "$12" },
+    { price: "$19" },
+    { price: "$39", delta: "+$20" },
+  ],
+  in: [
+    { price: "₹699" },
+    { price: "₹1,199" },
+    { price: "₹2,299", delta: "+₹1,100" },
+  ],
+};
+
+/**
+ * Which rung is on sale. Bump it when a rung sells out — the price on every
+ * surface, the ladder's highlight and the rail all follow from it — and change
+ * the Dodo product, the deltas above and the counts in PRICE_LADDER_COPY in
+ * the same pass.
+ */
+export const CURRENT_RUNG = 1;
+
+/**
+ * The price as it is *displayed*, per region, read off the ladder so the two
+ * cannot disagree.
  *
  * `productId` only needs its own value where Dodo holds a *separate* product
  * for that region. Left at the shared id, the buyer lands on the same checkout
@@ -45,39 +86,8 @@ export const PRICING: Record<
   Region,
   { price: string; productId: string }
 > = {
-  row: { price: "$12", productId: DODO_PRODUCT_ID },
-  in: { price: "₹699", productId: DODO_PRODUCT_ID },
-};
-
-/** One rung of the launch price ladder. `delta` is what it adds to rung one. */
-export type PriceTier = { price: string; delta?: string };
-
-/**
- * The launch price ladder, cheapest rung first, drawn above the pricing card.
- *
- * Rung one is the price above, and the only rung anything charges: move the
- * two together, here and in the Dodo dashboard, or the card and the ladder
- * disagree. The rungs above it are promises the page makes and nothing else
- * reads.
- *
- * `delta` is written out rather than subtracted at render: the regions share
- * neither a currency nor a rounding, and a computed "+₹500" would have to
- * reimplement both.
- *
- * How many copies are left at rung one is copy, not money, so it sits with the
- * rest of the ladder's wording in site-data.ts.
- */
-export const PRICE_LADDER: Record<Region, readonly PriceTier[]> = {
-  row: [
-    { price: "$12" },
-    { price: "$19", delta: "+$7" },
-    { price: "$39", delta: "+$27" },
-  ],
-  in: [
-    { price: "₹699" },
-    { price: "₹1,199", delta: "+₹500" },
-    { price: "₹2,299", delta: "+₹1,600" },
-  ],
+  row: { price: PRICE_LADDER.row[CURRENT_RUNG].price, productId: DODO_PRODUCT_ID },
+  in: { price: PRICE_LADDER.in[CURRENT_RUNG].price, productId: DODO_PRODUCT_ID },
 };
 
 /**
