@@ -35,9 +35,7 @@ export function isRegion(value: string | null | undefined): value is Region {
  * set on the product in the Dodo dashboard; this is only the label, so change
  * both together.
  *
- * `nextPrice` is what the launch offer says the price rises to. Nothing
- * charges it yet — it is a promise the card makes, so when the launch window
- * closes, `price` has to be moved to it here *and* in the Dodo dashboard.
+ * What the price rises to is PRICE_LADDER below, not here.
  *
  * `productId` only needs its own value where Dodo holds a *separate* product
  * for that region. Left at the shared id, the buyer lands on the same checkout
@@ -45,10 +43,10 @@ export function isRegion(value: string | null | undefined): value is Region {
  */
 export const PRICING: Record<
   Region,
-  { price: string; nextPrice: string; productId: string }
+  { price: string; productId: string }
 > = {
-  row: { price: "$12", nextPrice: "$19", productId: DODO_PRODUCT_ID },
-  in: { price: "₹699", nextPrice: "₹1,199", productId: DODO_PRODUCT_ID },
+  row: { price: "$12", productId: DODO_PRODUCT_ID },
+  in: { price: "₹699", productId: DODO_PRODUCT_ID },
 };
 
 /** One rung of the launch price ladder. `delta` is what it adds to rung one. */
@@ -57,9 +55,10 @@ export type PriceTier = { price: string; delta?: string };
 /**
  * The launch price ladder, cheapest rung first, drawn above the pricing card.
  *
- * Rung one is `price` above and rung two is `nextPrice`, because the card
- * names both in prose — move all three together or the section contradicts
- * itself. Rung three is only ever a promise, so it lives here alone.
+ * Rung one is the price above, and the only rung anything charges: move the
+ * two together, here and in the Dodo dashboard, or the card and the ladder
+ * disagree. The rungs above it are promises the page makes and nothing else
+ * reads.
  *
  * `delta` is written out rather than subtracted at render: the regions share
  * neither a currency nor a rounding, and a computed "+₹500" would have to

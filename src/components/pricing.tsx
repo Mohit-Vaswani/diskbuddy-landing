@@ -1,6 +1,6 @@
 import { DMG_SIZE, SEATS } from "@/lib/product";
 import { BuyButton, DownloadButton, SectionHeading } from "./ui";
-import { Price, withPrice } from "./region";
+import { Price } from "./region";
 import { PriceLadder } from "./price-ladder";
 import { LAUNCH_OFFER } from "./site-data";
 
@@ -52,17 +52,6 @@ export function Pricing() {
                 <span className="text-[14px] text-ink-muted">
                   one-time
                 </span>
-              </div>
-
-              {/* Two beats, set apart by an accent rule: the terms, then the
-                  consequence on its own line so it actually lands. */}
-              <div className="mt-5 border-l-2 border-accent/30 pl-3.5">
-                <p className="text-[13.5px] leading-[1.55] text-ink-soft">
-                  {withPrice(LAUNCH_OFFER.lead)}
-                </p>
-                <p className="mt-0.5 text-[13.5px] font-semibold leading-[1.55] tracking-[-0.012em] text-ink">
-                  {withPrice(LAUNCH_OFFER.kicker)}
-                </p>
               </div>
 
               <ul className="mt-7 space-y-3">
